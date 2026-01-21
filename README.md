@@ -1,96 +1,68 @@
----
-
-```markdown
 # 🤖 Organizador de Pastas Inteligente (Python + PyQt6)
 
-Este projeto é um sistema de automação para organização de ficheiros, utilizando uma interface gráfica personalizada. Ele permite selecionar pastas, listar tarefas e organizar ficheiros automaticamente com base na sua extensão e tamanho.
+Este projeto é uma ferramenta de automação para organização de arquivos, utilizando uma interface gráfica moderna. Ele permite processar múltiplas pastas simultaneamente, movendo arquivos automaticamente com base em suas extensões e tamanhos para manter o seu computador limpo e organizado.
 
 ---
 
-## 📸 Galeria do Projeto
+## 📸 Interface do Projeto
 
-Para conferir todas as imagens do desenvolvimento, aceda à [Galeria Oficial](https://github.com/GustavoABA/OrganizadorAutomaticoPython/tree/main/ReadmeImagem).
+Abaixo, os três estágios do projeto: o design visual, a seleção de diretórios e o programa pronto para uso.
 
-| Design no Qt Designer | Seleção de Pastas | Interface em Execução |
+| Design (Qt Designer) | Seleção de Pastas | Interface em Execução |
 | :---: | :---: | :---: |
 | ![Design](https://raw.githubusercontent.com/GustavoABA/OrganizadorAutomaticoPython/main/ReadmeImagem/imagemParaReadme.png) | ![Seleção](https://raw.githubusercontent.com/GustavoABA/OrganizadorAutomaticoPython/main/ReadmeImagem/imagemParaReadme1.png) | ![Execução](https://raw.githubusercontent.com/GustavoABA/OrganizadorAutomaticoPython/main/ReadmeImagem/image.png) |
 
 ---
 
-## ✨ Funcionalidades
+## 📦 Downloads (Versões Prontas para Uso)
 
-* **Interface Gráfica (GUI)**: Criada no Qt Designer com estilização personalizada.
-* **Seleção Dinâmica**: Utiliza o `QFileDialog` para escolher pastas diretamente no sistema.
-* **Fila de Tarefas**: Adiciona múltiplos caminhos a um `listWidget` para processamento em lote.
-* **Triagem Inteligente**:
-    * **Imagens/Vídeos/Docs**: Separação automática por extensão.
-    * **Segurança**: Identifica ficheiros grandes e move-os para uma pasta de "Verificação" para evitar perdas acidentais.
+Não precisa instalar o Python para usar! Baixe as versões compiladas abaixo:
+
+* **[Versão Portátil (.exe)](https://github.com/GustavoABA/OrganizadorAutomaticoPython/releases)**: Basta baixar e executar. Já inclui o ícone personalizado.
+* **[Instalador Windows (.msi)](https://github.com/GustavoABA/OrganizadorAutomaticoPython/releases)**: Versão com instalador profissional que cria atalhos no sistema.
 
 ---
 
-## 📊 Exemplo de Log de Operação
+## ✨ Funcionalidades
 
-Ao carregar em **Finalizar**, o sistema gera um log detalhado como este:
+* **Interface Gráfica (GUI)**: Estilização personalizada com tema escuro e ícones.
+* **Processamento em Lote**: Adicione várias pastas à lista e organize todas com um único clique.
+* **Triagem de Segurança**: Arquivos muito grandes são movidos para uma pasta de "Verificação" para evitar movimentações acidentais de instaladores ou ISOs.
+* **Caminhos Relativos**: O executável é inteligente e localiza seus próprios arquivos de interface (.ui) e imagens (Galeria) automaticamente.
 
-```bash
-Começando Processo de organização...
-Criando subpastas: /Imagens, /Videos, /Verificar, /Docs
+---
 
-# Triagem por Tamanho
-O tamanho é: 599.276.976 Bytes
-Arquivo grande detectado: Docker Desktop Installer.exe -> Movendo para /Verificar
+## 📂 Como o programa organiza suas pastas?
 
-# Organização por Extensão
-O tamanho é: 365.627 Bytes (OK)
-Novo Documento.txt -> Movendo para /Docs
-Screenshot_1.png -> Movendo para /Imagens
+Ao clicar em **Finalizar**, o programa analisa a pasta escolhida e cria automaticamente a seguinte estrutura de subpastas:
 
-# Resultado
-Pasta organizada com sucesso: C:/Users/Servidor/Downloads
-Processo finalizado para todas as pastas!
+| Pasta Gerada | Critério de Organização |
+| :--- | :--- |
+| **`/Imagens`** | Arquivos `.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.webp`. |
+| **`/Videos`** | Arquivos `.mp4`, `.mkv`, `.avi`, `.mov`. |
+| **`/Docs`** | Arquivos `.pdf`, `.docx`, `.txt`, `.xlsx`, `.pptx`. |
+| **`/Verificar`** | Arquivos acima de um determinado tamanho (Ex: Instaladores `.exe`). |
 
-```
+
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Python 3.12**: Linguagem base do projeto.
-* **PyQt6**: Framework para a construção da interface.
-* **Qt Designer**: Ferramenta de design visual para ficheiros `.ui`.
-* **Biblioteca OS**: Para gestão de caminhos dinâmicos e manipulação de ficheiros.
+* **Python 3.12**: Core do sistema.
+* **PyQt6**: Framework da interface.
+* **PyInstaller**: Compilação em executável único.
+* **Briefcase**: Geração do instalador nativo MSI.
 
 ---
 
-## 🚀 Como Executar
+## 🏗️ Estrutura do Repositório
 
-1. **Instale as dependências**:
-```bash
-pip install PyQt6
-
-```
-
-
-2. **Clone o repositório e execute**:
-```bash
-python Main.py
-
-```
-
-
+* `Main.py`: Controle da interface e eventos.
+* `Organizar.py`: Motor de lógica que realiza a movimentação dos arquivos.
+* `Menu.ui`: Arquivo de design da interface gerado pelo Qt Designer.
+* `Galeria/`: Contém os recursos visuais e o ícone do programa (`ButtonBan.png`).
 
 ---
 
-## 🏗️ Estrutura de Arquivos
-
-* `Main.py`: Gere a interface e a conexão dos botões.
-* `Organizar.py`: Contém a lógica de `match case` para a limpeza.
-* `Menu.ui`: Design visual da janela.
-
----
-
-**Desenvolvido por GustavoABA** - Projeto de automação de fluxo de trabalho.
-
-```
-
-```
+**Desenvolvido por GustavoABA** - Automação e Produtividade.
