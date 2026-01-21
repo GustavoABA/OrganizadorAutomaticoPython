@@ -1,19 +1,96 @@
-🤖 Organizador de Pastas Automatizado (PyQt6)Este projeto é um Organizador de Arquivos Inteligente com interface gráfica, desenvolvido em Python. Ele resolve o problema comum de pastas de "Downloads" ou "Desktop" lotadas, movendo arquivos para subpastas categorizadas com base na extensão e no tamanho do arquivo.📸 Demonstração da InterfaceO projeto evoluiu de um protótipo básico no Qt Designer para uma interface personalizada com tema Dark e estilização via CSS.Design no Qt DesignerInterface Final (Fundo Customizado)✨ FuncionalidadesSeleção Dinâmica: Permite escolher qualquer pasta do computador através de uma janela nativa do Windows.Fila de Processamento: Adiciona múltiplas pastas em um listWidget para organização em lote.Categorização Automática:Imagens: .png, .jpg, .jpeg, .gif.Vídeos: .mp4, .mkv, .mov.Docs: .pdf, .docx, .txt.Verificar: Arquivos grandes ou desconhecidos para triagem manual.Segurança (Triagem de Tamanho): Arquivos considerados "grandes" são movidos para uma pasta especial para evitar erros de movimentação acidental.📊 Log de Execução RealAbaixo está o registro de uma operação real processando a pasta de Downloads. O sistema identifica o tamanho, cria as pastas necessárias e move os arquivos:BashComeçando Processo de organização
-Criando Pastas: /Imagens, /Videos, /Verificar, /Docs
+---
 
-# Verificação de Segurança (Arquivos Grandes)
-O tamanho é: 599276976 Bytes
-Arquivo grande detectado: Docker Desktop Installer.exe -> Verificação necessária
-Movendo: Docker Desktop Installer.exe -> /Organizar/Verificar/
+```markdown
+# 🤖 Organizador de Pastas Inteligente (Python + PyQt6)
+
+Este projeto é um sistema de automação para organização de ficheiros, utilizando uma interface gráfica personalizada. Ele permite selecionar pastas, listar tarefas e organizar ficheiros automaticamente com base na sua extensão e tamanho.
+
+---
+
+## 📸 Galeria do Projeto
+
+Para conferir todas as imagens do desenvolvimento, aceda à [Galeria Oficial](https://github.com/GustavoABA/OrganizadorAutomaticoPython/tree/main/ReadmeImagem).
+
+| Design no Qt Designer | Seleção de Pastas | Interface em Execução |
+| :---: | :---: | :---: |
+| ![Design](https://raw.githubusercontent.com/GustavoABA/OrganizadorAutomaticoPython/main/ReadmeImagem/imagemParaReadme.png) | ![Seleção](https://raw.githubusercontent.com/GustavoABA/OrganizadorAutomaticoPython/main/ReadmeImagem/imagemParaReadme1.png) | ![Execução](https://raw.githubusercontent.com/GustavoABA/OrganizadorAutomaticoPython/main/ReadmeImagem/image.png) |
+
+---
+
+## ✨ Funcionalidades
+
+* **Interface Gráfica (GUI)**: Criada no Qt Designer com estilização personalizada.
+* **Seleção Dinâmica**: Utiliza o `QFileDialog` para escolher pastas diretamente no sistema.
+* **Fila de Tarefas**: Adiciona múltiplos caminhos a um `listWidget` para processamento em lote.
+* **Triagem Inteligente**:
+    * **Imagens/Vídeos/Docs**: Separação automática por extensão.
+    * **Segurança**: Identifica ficheiros grandes e move-os para uma pasta de "Verificação" para evitar perdas acidentais.
+
+---
+
+## 📊 Exemplo de Log de Operação
+
+Ao carregar em **Finalizar**, o sistema gera um log detalhado como este:
+
+```bash
+Começando Processo de organização...
+Criando subpastas: /Imagens, /Videos, /Verificar, /Docs
+
+# Triagem por Tamanho
+O tamanho é: 599.276.976 Bytes
+Arquivo grande detectado: Docker Desktop Installer.exe -> Movendo para /Verificar
 
 # Organização por Extensão
-O tamanho é: 365627 Bytes (OK)
-Movendo: Novo Documento de Texto.txt -> /Organizar/Docs/
-Movendo: Screenshot_1.png -> /Organizar/Imagens/
+O tamanho é: 365.627 Bytes (OK)
+Novo Documento.txt -> Movendo para /Docs
+Screenshot_1.png -> Movendo para /Imagens
 
-# Status Final
+# Resultado
 Pasta organizada com sucesso: C:/Users/Servidor/Downloads
 Processo finalizado para todas as pastas!
-🛠️ Tecnologias e BibliotecasPython 3.12: Linguagem base.PyQt6: Framework para a interface gráfica.Qt Designer: Ferramenta de design visual para os arquivos .ui.Library OS: Para manipulação de caminhos dinâmicos e arquivos no sistema.🚀 Como ExecutarCertifique-se de ter o PyQt6 instalado:Bashpip install PyQt6
-Mantenha o arquivo Menu.ui e o Main.py no mesmo diretório.Execute o script:Bashpython Main.py
-🏗️ Estrutura do CódigoO projeto utiliza uma estrutura desacoplada para facilitar a manutenção:Main.py: Gerencia a interface, os botões e os caminhos dinâmicos.Organizar.py: Contém a classe Organizar com a lógica de match case para triagem de arquivos.Menu.ui: Arquivo XML contendo o layout visual.Desenvolvido como projeto de automação de workflow.
+
+```
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Python 3.12**: Linguagem base do projeto.
+* **PyQt6**: Framework para a construção da interface.
+* **Qt Designer**: Ferramenta de design visual para ficheiros `.ui`.
+* **Biblioteca OS**: Para gestão de caminhos dinâmicos e manipulação de ficheiros.
+
+---
+
+## 🚀 Como Executar
+
+1. **Instale as dependências**:
+```bash
+pip install PyQt6
+
+```
+
+
+2. **Clone o repositório e execute**:
+```bash
+python Main.py
+
+```
+
+
+
+---
+
+## 🏗️ Estrutura de Arquivos
+
+* `Main.py`: Gere a interface e a conexão dos botões.
+* `Organizar.py`: Contém a lógica de `match case` para a limpeza.
+* `Menu.ui`: Design visual da janela.
+
+---
+
+**Desenvolvido por GustavoABA** - Projeto de automação de fluxo de trabalho.
+
+```
+
+```
